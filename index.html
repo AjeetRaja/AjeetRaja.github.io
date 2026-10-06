@@ -3,133 +3,213 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AjeetRaja | AI & Cloud Engineer</title>
+    <title>AjeetRaja — AI & Cloud Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-color: #030712;
-            --card-bg: #111827;
+            --bg: #090a0f;
+            --surface: #12141c;
+            --border: #1e2230;
+            --text-primary: #f8fafc;
+            --text-secondary: #94a3b8;
             --accent: #38bdf8;
-            --text-main: #f3f4f6;
-            --text-muted: #9ca3af;
-            --border: #1f2937;
+            --accent-glow: rgba(56, 189, 248, 0.15);
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg);
+            color: var(--text-primary);
+            font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            padding: 2rem 1rem;
+            padding: 4rem 1.5rem;
+            display: flex;
+            justify-content: center;
         }
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
+        .wrapper {
+            max-width: 760px;
+            width: 100%;
         }
         header {
-            padding: 3rem 0;
-            border-bottom: 1px solid var(--border);
-            margin-bottom: 2rem;
+            margin-bottom: 3.5rem;
         }
-        .badge {
-            display: inline-block;
-            background: rgba(56, 189, 248, 0.1);
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent-glow);
+            border: 1px solid rgba(56, 189, 248, 0.3);
             color: var(--accent);
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.85rem;
+            padding: 0.35rem 0.85rem;
+            border-radius: 100px;
+            font-size: 0.8rem;
             font-weight: 500;
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
         }
-        h1 { font-size: 2.5rem; font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.025em; }
-        p.subtitle { color: var(--text-muted); font-size: 1.15rem; margin-bottom: 1.5rem; }
-        
-        .section-title {
-            font-size: 1.25rem;
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent);
+        }
+        h1 {
+            font-size: 2.75rem;
             font-weight: 700;
-            margin: 2rem 0 1rem 0;
-            color: var(--accent);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: -0.03em;
+            margin-bottom: 0.75rem;
         }
-        .grid {
+        .tagline {
+            font-size: 1.2rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            font-weight: 400;
+            line-height: 1.5;
+        }
+        .actions {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+        .btn {
+            background: var(--text-primary);
+            color: var(--bg);
+            padding: 0.7rem 1.4rem;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: opacity 0.2s;
+        }
+        .btn:hover { opacity: 0.9; }
+        .btn-outline {
+            background: transparent;
+            color: var(--text-primary);
+            border: 1px solid var(--border);
+        }
+        .btn-outline:hover { border-color: var(--text-secondary); background: var(--surface); }
+
+        section {
+            margin-bottom: 3rem;
+        }
+        h2 {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--text-secondary);
+            margin-bottom: 1.25rem;
+            font-weight: 600;
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .grid-projects {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            grid-template-columns: 1fr;
             gap: 1rem;
         }
         .card {
-            background-color: var(--card-bg);
+            background: var(--surface);
             border: 1px solid var(--border);
-            border-radius: 0.75rem;
+            border-radius: 10px;
             padding: 1.5rem;
-            transition: border-color 0.2s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            transition: all 0.2s ease;
         }
-        .card:hover { border-color: var(--accent); }
-        .card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
-        .card p { color: var(--text-muted); font-size: 0.9rem; }
-        
-        .skills-list {
+        .card:hover {
+            border-color: var(--accent);
+            transform: translateY(-2px);
+        }
+        .card h3 {
+            font-size: 1.05rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .card h3 span {
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            font-family: 'JetBrains Mono', monospace;
+        }
+        .card p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+        .stack-list {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
             list-style: none;
         }
-        .skills-list li {
-            background: var(--card-bg);
+        .stack-item {
+            background: var(--surface);
             border: 1px solid var(--border);
-            padding: 0.4rem 0.8rem;
-            border-radius: 0.5rem;
+            padding: 0.35rem 0.75rem;
+            border-radius: 6px;
             font-size: 0.85rem;
+            font-family: 'JetBrains Mono', monospace;
+            color: var(--text-primary);
         }
-        .social-links {
-            margin-top: 2rem;
+        footer {
+            border-top: 1px solid var(--border);
+            padding-top: 2rem;
+            color: var(--text-secondary);
+            font-size: 0.85rem;
             display: flex;
-            gap: 1rem;
+            justify-content: space-between;
         }
-        .social-links a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-        }
-        .social-links a:hover { text-decoration: underline; }
+        footer a { color: var(--accent); text-decoration: none; }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="wrapper">
         <header>
-            <div class="badge">Available for Remote / Freelance</div>
+            <div class="status-badge">
+                <div class="status-dot"></div>
+                Available for Global Remote & Contract AI Engineering
+            </div>
             <h1>AjeetRaja</h1>
-            <p class="subtitle">AI & Cloud Engineer | Building Agentic Workflows, Python Systems, & AWS Architectures.</p>
-            <div class="social-links">
-                <a href="https://github.com/AjeetRaja" target="_blank">GitHub</a>
-                <a href="mailto:your-email@example.com">Contact Me</a>
+            <p class="tagline">AI & Cloud Engineer. Specializing in autonomous agentic workflows, Python automation, and scalable AWS infrastructures.</p>
+            <div class="actions">
+                <a href="mailto:your-email@example.com" class="btn">Get in Touch</a>
+                <a href="https://github.com/AjeetRaja" target="_blank" class="btn btn-outline">GitHub Profile</a>
             </div>
         </header>
 
         <section>
-            <h2 class="section-title">Core Expertise</h2>
-            <ul class="skills-list">
-                <li>Python</li>
-                <li>Amazon Bedrock / AgentCore</li>
-                <li>Agentic Workflows</li>
-                <li>Cloud Architecture</li>
-                <li>Embedded Systems</li>
-                <li>Git & GitHub</li>
+            <h2>Technical Stack</h2>
+            <ul class="stack-list">
+                <li class="stack-item">Python</li>
+                <li class="stack-item">Amazon Bedrock</li>
+                <li class="stack-item">Agentic Workflows</li>
+                <li class="stack-item">Cloud Architecture</li>
+                <li class="stack-item">Embedded Systems</li>
+                <li class="stack-item">Git & CI/CD</li>
             </ul>
         </section>
 
         <section>
-            <h2 class="section-title">Featured Projects</h2>
-            <div class="grid">
-                <div class="card">
-                    <h3>Agentic AI Workflow</h3>
-                    <p>Building automated orchestration systems using Python and advanced cloud backends.</p>
-                </div>
-                <div class="card">
-                    <h3>Cloud Core Systems</h3>
-                    <p>Scalable cloud infrastructure design and deployment strategies.</p>
-                </div>
+            <h2>Featured Systems & Projects</h2>
+            <div class="grid-projects">
+                <a href="https://github.com/AjeetRaja/Nyaya_Al" target="_blank" class="card">
+                    <h3>Nyaya AI <span>Python / LLMs</span></h3>
+                    <p>Advanced autonomous reasoning and data automation engine designed for complex workflows.</p>
+                </a>
+                <a href="https://github.com/AjeetRaja/Nexus-Core-infrastructure" target="_blank" class="card">
+                    <h3>Nexus Core Infrastructure <span>AWS / Cloud</span></h3>
+                    <p>Scalable cloud-native orchestration framework built for high-throughput automated task execution.</p>
+                </a>
             </div>
         </section>
+
+        <footer>
+            <p>© 2026 AjeetRaja. Built with clean code.</p>
+            <p><a href="https://github.com/AjeetRaja" target="_blank">@AjeetRaja</a></p>
+        </footer>
     </div>
 </body>
 </html>
